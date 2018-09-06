@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<html lang="fr">
+		<head>
+			<meta charset="utf-8" />
+			<SCRIPT LANGUAGE="Javascript">
+                    var alea=Math.round(Math.random()*99)+1;
+                    var coup=0;
+                    function test(valeur)
+                    {
+                        if(valeur.value>100 || valeur.value<0 || isNaN( valeur.value))
+                            alert("saisissez un nombre compris entre 0 et 100");
+                     else
+                    coup=coup+1;
+                    if (coup > 6)
+                        {
+                        partie=confirm("T'as perdu !\nIl fallait trouver : " + alea + "\nNouvelle partie ?");
+                        if (partie)
+                            {
+                            document.form1.commentaire.value="Nouvelle partie...";
+                            coup=0;
+                            alea=Math.round(Math.random()*99)+1;
+                            document.form1.coup.value=0;
+                            valeur.value="";
+                            }
+                            else
+                            {
+                            window.close();
+                            }
+                        }
+                        else
+                        {
+                           
+                        
+                        if (valeur.value < alea)
+                            document.form1.commentaire.value="Trop petit !";
+                        if (valeur.value > alea)
+                            document.form1.commentaire.value="Trop grand !" ;
+                        if (valeur.value == alea)
+                            document.form1.commentaire.value="Gagné !!!";
+                        document.form1.coup.value=coup;
+                        }
+                    }
+                    </SCRIPT>
+		</head>
+		<body>
+            <br><br><br><br><br><br>
+                <center> <font color="blue" size="6"> 
+                        Cherchez un nombre entre 1 et 100 :</center></font><br><br>
+                        <form name="form1">
+                        <center>Entrez un nombre : <input type="text" name="valeur"  size=6 style="background-color:aqua;color:red;"required ></center><br>
+                        <br>
+                        <center><input type="Button" OnClick="test(valeur)" Value="Calcul"></center>
+                        <br><br>
+                        <center><input type="text" name="commentaire" size=20 value="Bonne chance..." ></center>
+                        <br><br>
+                        <center>Coup Numéro : <input type="text" name="coup" size=3></center>
+                        </form>     
+                   
+        </body>
+    </html>
+   
+
+    
